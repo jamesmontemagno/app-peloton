@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="FitnessApp.Views.FeaturedPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:local="clr-namespace:FitnessApp.ViewModels"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    BackgroundColor="{StaticResource Background}"
+    mc:Ignorable="d">
+    <d:ContentPage.BindingContext>
+        <local:FeaturedViewModel />
+    </d:ContentPage.BindingContext>
+    <Grid RowDefinitions="Auto,240,*">
+        <Label
+            Margin="16,10,0,0"
+            FontAttributes="Bold"
+            FontSize="Medium"
+            Text="Live and Upcoming"
+            TextColor="{StaticResource TextPrimary}" />
+        <CollectionView
+            Grid.Row="1"
+            ItemsLayout="HorizontalList"
+            VerticalOptions="Start">
+            <CollectionView.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Item One</x:String>
+                    <x:String>Item Two</x:String>
+                    <x:String>Item Three</x:String>
+                </x:Array>
+            </CollectionView.ItemsSource>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="16,0,0,0">
+                        <Frame
+                            Padding="0"
+                            BackgroundColor="{StaticResource CardBackground}"
+                            CornerRadius="8"
+                            HasShadow="True"
+                            WidthRequest="320">
+                            <Grid RowDefinitions="170,Auto,Auto">
+                                <BoxView BackgroundColor="Black" />
+                                <Label
+                                    Grid.Row="1"
+                                    Margin="16,4,0,0"
+                                    FontSize="Small"
+                                    Text="PROGRAM - 4 WEEKS"
+                                    TextColor="{StaticResource TextSecondary}" />
+                                <Label
+                                    Grid.Row="2"
+                                    Margin="16,0,0,6"
+                                    FontSize="Medium"
+                                    Text="Strength"
+                                    TextColor="{StaticResource TextPrimary}" />
+                            </Grid>
+                        </Frame>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>

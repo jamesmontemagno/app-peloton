@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <LangVersion>preview</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\Fonts\FABrands.otf" />
+    <None Remove="Resources\Fonts\FARegular.otf" />
+    <None Remove="Resources\Fonts\FASolid.otf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Fonts\FABrands.otf" />
+    <EmbeddedResource Include="Resources\Fonts\FARegular.otf" />
+    <EmbeddedResource Include="Resources\Fonts\FASolid.otf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MonkeyCache.FileStore" Version="1.5.0-beta" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Refractored.MvvmHelpers" Version="1.6.2" />
+    <PackageReference Include="Resizetizer.NT" Version="0.2.0" />
+    <PackageReference Include="Sharpnado.MaterialFrame" Version="1.1.3" />
+    <PackageReference Include="Sharpnado.Tabs" Version="2.0.1" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.1791-pre5" />  
+    <PackageReference Include="Xamarin.Essentials" Version="1.6.0-pre5" />  
+    <PackageReference Include="Xamarin.Forms.PancakeView" Version="2.3.0.759" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Resources\Images\" />
+    <Folder Include="Services\" />
+  </ItemGroup>
+
+</Project>

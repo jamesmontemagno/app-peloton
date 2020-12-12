@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application
+    x:Class="FitnessApp.App"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <!--
+        Define global resources and styles here, that apply to all pages in your app.
+    -->
+    <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Background">#D4D5DB</Color>
+            <Color x:Key="TabBarBackground">#FAF8FA</Color>
+            <Color x:Key="CardBackground">#FFFEFF</Color>
+            <Color x:Key="ButtonOutline">#686E7A</Color>
+            <Color x:Key="Accent">#FF344A</Color>
+
+            <Color x:Key="TabIconSelected">#FF344A</Color>
+            <Color x:Key="TabIconUnselected">#2C2D31</Color>
+            <Color x:Key="TextSecondary">#606572</Color>
+            <Color x:Key="TextPrimary">#25272C</Color>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

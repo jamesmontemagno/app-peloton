@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="FitnessApp.Views.ChallengesPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BackgroundColor="{StaticResource Background}">
+    <Grid Padding="0,16" RowDefinitions="*,Auto">
+        <CarouselView Loop="False"PeekAreaInsets="20" IndicatorView="indicatorView">
+            <CarouselView.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Item One</x:String>
+                    <x:String>Item Two</x:String>
+                    <x:String>Item Three</x:String>
+                    <x:String>Item Three</x:String>
+                    <x:String>Item Three</x:String>
+                </x:Array>
+            </CarouselView.ItemsSource>
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="8,0,0,0">
+                        <Frame
+                            Padding="0"
+                            CornerRadius="8"
+                            HasShadow="True"
+                            WidthRequest="320">
+                            <Frame.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                    <GradientStop Offset="0.1" Color="#8A2387" />
+                                    <GradientStop Offset="0.6" Color="#E94057" />
+                                    <GradientStop Offset="1.0" Color="#F27121" />
+                                </LinearGradientBrush>
+                            </Frame.Background>
+                            <Grid RowDefinitions="*,Auto,Auto">
+                                <Label
+                                    Grid.Row="1"
+                                    Margin="16,4,0,0"
+                                    FontSize="Small"
+                                    Text="PROGRAM - 4 WEEKS"
+                                    TextColor="{StaticResource TextSecondary}" />
+                                <Label
+                                    Grid.Row="2"
+                                    Margin="16,0,0,6"
+                                    FontSize="Medium"
+                                    Text="Strength"
+                                    TextColor="{StaticResource TextPrimary}" />
+                            </Grid>
+                        </Frame>
+                    </Grid>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+        <IndicatorView
+            x:Name="indicatorView"
+            Grid.Row="1"
+            HorizontalOptions="Center"
+            IndicatorSize="10"
+            IndicatorColor="#ADB4BD"
+            SelectedIndicatorColor="#5D6578" />
+    </Grid>
+</ContentPage>

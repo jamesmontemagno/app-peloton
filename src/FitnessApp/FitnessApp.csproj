@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -13,6 +13,7 @@
     <None Remove="Resources\Fonts\FABrands.otf" />
     <None Remove="Resources\Fonts\FARegular.otf" />
     <None Remove="Resources\Fonts\FASolid.otf" />
+    <None Remove="Resources\Images\medal.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,14 +29,17 @@
     <PackageReference Include="Resizetizer.NT" Version="0.2.0" />
     <PackageReference Include="Sharpnado.MaterialFrame" Version="1.1.3" />
     <PackageReference Include="Sharpnado.Tabs" Version="2.0.1" />
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.1791-pre5" />  
-    <PackageReference Include="Xamarin.Essentials" Version="1.6.0-pre5" />  
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.1874" />  
+    <PackageReference Include="Xamarin.Essentials" Version="1.6.0" />  
     <PackageReference Include="Xamarin.Forms.PancakeView" Version="2.3.0.759" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Resources\Images\" />
     <Folder Include="Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <SharedImage Include="Resources\Images\medal.png" BaseSize="86,86" />
   </ItemGroup>
 
 </Project>

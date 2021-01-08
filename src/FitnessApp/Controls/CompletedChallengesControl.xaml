@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="FitnessApp.Controls.CompletedChallengesControl"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:helpers="clr-namespace:FitnessApp.Helpers">
+    <ContentView.Content>
+        <StackLayout>
+            <CollectionView
+                Grid.Row="1"
+                ItemsLayout="VerticalList"
+                VerticalOptions="Start">
+                <CollectionView.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Item One</x:String>
+                        <x:String>Item Two</x:String>
+                        <x:String>Item Three</x:String>
+                        <x:String>Item Three</x:String>
+                        <x:String>Item Three</x:String>
+                    </x:Array>
+                </CollectionView.ItemsSource>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="16,8">
+                            <Frame
+                                Padding="0"
+                                BackgroundColor="{StaticResource CardBackground}"
+                                CornerRadius="8"
+                                HasShadow="True"
+                                WidthRequest="320">
+                                <Grid RowDefinitions="100,Auto">
+                                    <StackLayout Padding="16" Spacing="0">
+                                        <StackLayout.Background>
+                                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                                <GradientStop Offset="0.1" Color="#8A2387" />
+                                                <GradientStop Offset="0.6" Color="#E94057" />
+                                                <GradientStop Offset="1.0" Color="#F27121" />
+                                            </LinearGradientBrush>
+                                        </StackLayout.Background>
+                                        <Label
+                                            FontSize="Small"
+                                            Text="ENDED 12/31/2020"
+                                            TextColor="White"
+                                            VerticalTextAlignment="Center" />
+                                        <Label
+                                            FontSize="Medium"
+                                            Text="Holiday Activity Challenge"
+                                            TextColor="White"
+                                            VerticalTextAlignment="Center" />
+                                    </StackLayout>
+                                    <StackLayout
+                                        Grid.Row="1"
+                                        Padding="16,8,16,12"
+                                        Orientation="Horizontal">
+                                        <Label
+                                            FontSize="Medium"
+                                            Text="Earned Gold"
+                                            TextColor="{StaticResource TextPrimary}"
+                                            VerticalTextAlignment="Center" />
+                                        <Label
+                                            FontSize="Micro"
+                                            Text="  • "
+                                            TextColor="{StaticResource TextSecondary}"
+                                            VerticalTextAlignment="Center" />
+                                        <Label
+                                            FontSize="Small"
+                                            Text="29 days"
+                                            TextColor="{StaticResource TextSecondary}"
+                                            VerticalTextAlignment="Center" />
+                                    </StackLayout>
+
+                                </Grid>
+                            </Frame>
+
+                            <StackLayout HorizontalOptions="End"
+                                         VerticalOptions="End"
+                                         Margin="0,0,16,14">
+                                <Image
+                                    HeightRequest="80"
+                                    HorizontalOptions="Center"
+                                    Source="medal"
+                                    VerticalOptions="Center"
+                                    WidthRequest="80">
+                                    <Image.Clip>
+                                        <EllipseGeometry
+                                            Center="40,40"
+                                            RadiusX="38"
+                                            RadiusY="38" />
+                                    </Image.Clip>
+                                </Image>
+                            </StackLayout>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

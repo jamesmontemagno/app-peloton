@@ -3,10 +3,11 @@
     x:Class="FitnessApp.Views.ChallengesPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:FitnessApp.Controls"
     xmlns:converters="clr-namespace:FitnessApp.Converters"
     xmlns:helpers="clr-namespace:FitnessApp.Helpers"
     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-    xmlns:viewmodels="clr-namespace:FitnessApp.ViewModels" xmlns:controls="clr-namespace:FitnessApp.Controls"
+    xmlns:viewmodels="clr-namespace:FitnessApp.ViewModels"
     ios:Page.UseSafeArea="True"
     x:DataType="viewmodels:ChallengesViewModel"
     BackgroundColor="{StaticResource Background}"
@@ -36,9 +37,7 @@
             ColumnDefinitions="*,*,*">
             <StackLayout Padding="16">
                 <StackLayout.GestureRecognizers>
-                    <TapGestureRecognizer 
-                        Command="{Binding SelectCategoryCommand}"
-                        CommandParameter="0"/>
+                    <TapGestureRecognizer Command="{Binding SelectCategoryCommand}" CommandParameter="0" />
                 </StackLayout.GestureRecognizers>
                 <Label
                     Style="{StaticResource CategoryIcon}"
@@ -50,12 +49,9 @@
                     Text="Active"
                     TextColor="{Binding SelectedCategoryIndex, Converter={StaticResource SelectedIndexColorConverter}, ConverterParameter='0'}" />
             </StackLayout>
-            <StackLayout Grid.Column="1"                       
-            Padding="16,16,16,0">
+            <StackLayout Grid.Column="1" Padding="16,16,16,0">
                 <StackLayout.GestureRecognizers>
-                    <TapGestureRecognizer 
-                        Command="{Binding SelectCategoryCommand}"
-                        CommandParameter="1"/>
+                    <TapGestureRecognizer Command="{Binding SelectCategoryCommand}" CommandParameter="1" />
                 </StackLayout.GestureRecognizers>
                 <Label
                     Style="{StaticResource CategoryIcon}"
@@ -66,12 +62,9 @@
                     Text="Upcoming"
                     TextColor="{Binding SelectedCategoryIndex, Converter={StaticResource SelectedIndexColorConverter}, ConverterParameter='1'}" />
             </StackLayout>
-            <StackLayout Grid.Column="2"                       
-            Padding="16,16,16,0">
+            <StackLayout Grid.Column="2" Padding="16,16,16,0">
                 <StackLayout.GestureRecognizers>
-                    <TapGestureRecognizer 
-                        Command="{Binding SelectCategoryCommand}"
-                        CommandParameter="2"/>
+                    <TapGestureRecognizer Command="{Binding SelectCategoryCommand}" CommandParameter="2" />
                 </StackLayout.GestureRecognizers>
                 <Label
                     Style="{StaticResource CategoryIcon}"
@@ -83,8 +76,8 @@
                     TextColor="{Binding SelectedCategoryIndex, Converter={StaticResource SelectedIndexColorConverter}, ConverterParameter='2'}" />
             </StackLayout>
         </Grid>
-        <controls:ActiveChallengesView Grid.Row="1" IsVisible="{Binding SelectedCategoryIndex, Converter={StaticResource SelectedIndexVisibleConverter}, ConverterParameter='0'}"/>
-        <controls:ActiveChallengesView Grid.Row="1" IsVisible="{Binding SelectedCategoryIndex, Converter={StaticResource SelectedIndexVisibleConverter}, ConverterParameter='1'}"/>
-        <controls:CompletedChallengesControl Grid.Row="1" IsVisible="{Binding SelectedCategoryIndex, Converter={StaticResource SelectedIndexVisibleConverter}, ConverterParameter='2'}"/>
+        <controls:ActiveChallengesView Grid.Row="1" IsVisible="{Binding SelectedCategoryIndex, Converter={StaticResource SelectedIndexVisibleConverter}, ConverterParameter='0'}" />
+        <controls:ActiveChallengesView Grid.Row="1" IsVisible="{Binding SelectedCategoryIndex, Converter={StaticResource SelectedIndexVisibleConverter}, ConverterParameter='1'}" />
+        <controls:CompletedChallengesControl Grid.Row="1" IsVisible="{Binding SelectedCategoryIndex, Converter={StaticResource SelectedIndexVisibleConverter}, ConverterParameter='2'}" />
     </Grid>
 </ContentPage>

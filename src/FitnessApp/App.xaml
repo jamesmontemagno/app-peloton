@@ -2,6 +2,7 @@
 <Application
     x:Class="FitnessApp.App"
     xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
     <!--
         Define global resources and styles here, that apply to all pages in your app.
@@ -18,6 +19,30 @@
             <Color x:Key="TabIconUnselected">#2C2D31</Color>
             <Color x:Key="TextSecondary">#606572</Color>
             <Color x:Key="TextPrimary">#25272C</Color>
+            <Style x:Key="TabViewItemStyle" TargetType="xct:TabViewItem">
+                <Setter Property="TextColor" Value="{StaticResource TextSecondary}" />
+                <Setter Property="TextColorSelected" Value="{StaticResource Accent}" />
+            </Style>
+
+            <ControlTemplate x:Key="TabItemTemplate">
+                <Grid RowSpacing="0" VerticalOptions="Center"
+                      RowDefinitions="Auto,Auto">
+                    <Image
+                        Grid.Row="0"
+                        Margin="6"
+                        HeightRequest="36"
+                        HorizontalOptions="Center"
+                        Source="{TemplateBinding CurrentIcon}"
+                        VerticalOptions="Center"
+                        WidthRequest="36" />
+                    <Label
+                        Grid.Row="1"
+                        FontSize="{TemplateBinding FontSize}"
+                        HorizontalOptions="Center"
+                        Text="{TemplateBinding Text}"
+                        TextColor="{TemplateBinding CurrentTextColor}" />
+                </Grid>
+            </ControlTemplate>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

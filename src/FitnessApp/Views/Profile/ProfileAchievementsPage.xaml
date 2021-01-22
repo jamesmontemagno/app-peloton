@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FitnessApp.Views.Profile.ProfileAchievementsPage"
+             Title="JamesMontemagno"
+             BackgroundColor="{StaticResource Background}">
+    <Shell.TitleView>
+        <StackLayout VerticalOptions="FillAndExpand"
+              HorizontalOptions="FillAndExpand">
+            <Label
+                FontSize="Medium"
+                Text="JamesMontemagno"
+                TextColor="Black"
+                Margin="{OnPlatform iOS='0,12,0,4', Android='0,16,0,8'}"
+                HorizontalTextAlignment="Center"/>
+            <BoxView
+                HorizontalOptions="FillAndExpand"
+                HeightRequest="1"
+                Margin="{OnPlatform Android='0,0,16,0'}"
+                BackgroundColor="#DDD"/>
+        </StackLayout>
+    </Shell.TitleView>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Welcome to Xamarin.Forms!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

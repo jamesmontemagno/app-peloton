@@ -4,6 +4,7 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:FitnessApp.Views"
+    xmlns:profile="clr-namespace:FitnessApp.Views.Profile"
     xmlns:helpers="clr-namespace:FitnessApp.Helpers"
     Title="FitnessApp">
 
@@ -16,11 +17,11 @@
     <Shell.Resources>
         <ResourceDictionary>
             <Style x:Key="BaseStyle" TargetType="Element">
-                <Setter Property="Shell.BackgroundColor" Value="{StaticResource Background}" />
-                <Setter Property="Shell.ForegroundColor" Value="{StaticResource Background}" />
-                <Setter Property="Shell.TitleColor" Value="{StaticResource TabIconSelected}" />
+                <Setter Property="Shell.BackgroundColor" Value="#FFFEFF" />
+                <Setter Property="Shell.ForegroundColor" Value="Black" />
+                <Setter Property="Shell.TitleColor" Value="Black" />
                 <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
-                <Setter Property="Shell.UnselectedColor" Value="{StaticResource TabIconUnselected}" />
+                <Setter Property="Shell.UnselectedColor" Value="#B4B4BA" />
                 <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource TabBarBackground}" />
                 <!--<Setter Property="Shell.TabBarForegroundColor" Value="{StaticResource TabIconSelected}" />-->
                 <Setter Property="Shell.TabBarUnselectedColor" Value="{StaticResource TabIconUnselected}" />
@@ -68,14 +69,21 @@
         </Tab>
         <Tab Title="Profile"
              Route="ProfilePage"
-             Shell.NavBarIsVisible="False"
-             >
+             Shell.NavBarIsVisible="True"             >
             <Tab.Icon>
                 <FontImageSource FontFamily="FASolid"
                                      Glyph="{x:Static helpers:FAIcons.User}"/>
             </Tab.Icon>
+
             <ShellContent
-                ContentTemplate="{DataTemplate local:ProfilePage}"/>
+                Title="OVERVIEW"
+                ContentTemplate="{DataTemplate profile:ProfileOverviewPage}"/>
+            <ShellContent
+                Title="WORKOUTS"
+                ContentTemplate="{DataTemplate profile:ProfileWorkoutsPage}"/>
+            <ShellContent
+                Title="ACHIEVEMENTS"
+                ContentTemplate="{DataTemplate profile:ProfileAchievementsPage}"/>
         </Tab>
         <Tab Title="More"
              Route="MorePage"

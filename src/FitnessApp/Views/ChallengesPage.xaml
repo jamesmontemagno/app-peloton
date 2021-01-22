@@ -8,6 +8,7 @@
     xmlns:helpers="clr-namespace:FitnessApp.Helpers"
     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
     xmlns:viewmodels="clr-namespace:FitnessApp.ViewModels"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     ios:Page.UseSafeArea="True"
     x:DataType="viewmodels:ChallengesViewModel"
     BackgroundColor="{StaticResource Background}"
@@ -15,69 +16,71 @@
     <ContentPage.BindingContext>
         <viewmodels:ChallengesViewModel />
     </ContentPage.BindingContext>
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <Style x:Key="CategoryIcon" TargetType="Label">
-                <Setter Property="FontFamily" Value="FASolid" />
-                <Setter Property="FontSize" Value="28" />
-                <Setter Property="HorizontalOptions" Value="Center" />
-            </Style>
-            <Style x:Key="CategoryLabel" TargetType="Label">
-                <Setter Property="FontSize" Value="Small" />
-                <Setter Property="HorizontalOptions" Value="Center" />
-            </Style>
-            <converters:SelectedIndexColorConverter x:Key="SelectedIndexColorConverter" />
-            <converters:SelectedIndexVisibleConverter x:Key="SelectedIndexVisibleConverter" />
-        </ResourceDictionary>
-    </ContentPage.Resources>
-    <Grid RowDefinitions="Auto,.9*,Auto">
-        <Grid
-            Margin="{OnPlatform iOS='0,0,0,0'}"
-            BackgroundColor="{StaticResource CardBackground}"
-            ColumnDefinitions="*,*,*">
-            <StackLayout Padding="16">
-                <StackLayout.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding SelectCategoryCommand}" CommandParameter="0" />
-                </StackLayout.GestureRecognizers>
-                <Label
-                    Style="{StaticResource CategoryIcon}"
-                    Text="{x:Static helpers:FAIcons.Trophy}"
-                    TextColor="{Binding SelectedCategoryIndex, Converter={StaticResource SelectedIndexColorConverter}, ConverterParameter='0'}" />
-                <Label
-                    Grid.Row="1"
-                    Style="{StaticResource CategoryLabel}"
-                    Text="Active"
-                    TextColor="{Binding SelectedCategoryIndex, Converter={StaticResource SelectedIndexColorConverter}, ConverterParameter='0'}" />
-            </StackLayout>
-            <StackLayout Grid.Column="1" Padding="16,16,16,0">
-                <StackLayout.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding SelectCategoryCommand}" CommandParameter="1" />
-                </StackLayout.GestureRecognizers>
-                <Label
-                    Style="{StaticResource CategoryIcon}"
-                    Text="{x:Static helpers:FAIcons.AngleDoubleUp}"
-                    TextColor="{Binding SelectedCategoryIndex, Converter={StaticResource SelectedIndexColorConverter}, ConverterParameter='1'}" />
-                <Label
-                    Style="{StaticResource CategoryLabel}"
-                    Text="Upcoming"
-                    TextColor="{Binding SelectedCategoryIndex, Converter={StaticResource SelectedIndexColorConverter}, ConverterParameter='1'}" />
-            </StackLayout>
-            <StackLayout Grid.Column="2" Padding="16,16,16,0">
-                <StackLayout.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding SelectCategoryCommand}" CommandParameter="2" />
-                </StackLayout.GestureRecognizers>
-                <Label
-                    Style="{StaticResource CategoryIcon}"
-                    Text="{x:Static helpers:FAIcons.Award}"
-                    TextColor="{Binding SelectedCategoryIndex, Converter={StaticResource SelectedIndexColorConverter}, ConverterParameter='2'}" />
-                <Label
-                    Style="{StaticResource CategoryLabel}"
-                    Text="Completed"
-                    TextColor="{Binding SelectedCategoryIndex, Converter={StaticResource SelectedIndexColorConverter}, ConverterParameter='2'}" />
-            </StackLayout>
-        </Grid>
-        <controls:ActiveChallengesView Grid.Row="1" IsVisible="{Binding SelectedCategoryIndex, Converter={StaticResource SelectedIndexVisibleConverter}, ConverterParameter='0'}" />
-        <controls:ActiveChallengesView Grid.Row="1" IsVisible="{Binding SelectedCategoryIndex, Converter={StaticResource SelectedIndexVisibleConverter}, ConverterParameter='1'}" />
-        <controls:CompletedChallengesControl Grid.Row="1" IsVisible="{Binding SelectedCategoryIndex, Converter={StaticResource SelectedIndexVisibleConverter}, ConverterParameter='2'}" />
-    </Grid>
+    <xct:TabView
+        IsSwipeEnabled="False"
+        TabStripBackgroundColor="{StaticResource CardBackground}"
+        TabStripHeight="90"
+        TabStripPlacement="Top">
+        <xct:TabViewItem
+            ControlTemplate="{StaticResource TabItemTemplate}"
+            Style="{StaticResource TabViewItemStyle}"
+            Text="Active">
+
+            <xct:TabViewItem.Icon>
+                <FontImageSource
+                    FontFamily="FASolid"
+                    Glyph="{x:Static helpers:FAIcons.Trophy}"
+                    Size="42"
+                    Color="{StaticResource TextSecondary}" />
+            </xct:TabViewItem.Icon>
+            <xct:TabViewItem.IconSelected>
+                <FontImageSource
+                    FontFamily="FASolid"
+                    Glyph="{x:Static helpers:FAIcons.Trophy}"
+                    Size="42"
+                    Color="{StaticResource Accent}" />
+            </xct:TabViewItem.IconSelected>
+            <controls:ActiveChallengesView Margin="0,42,0,0"/>
+        </xct:TabViewItem>
+        <xct:TabViewItem
+            ControlTemplate="{StaticResource TabItemTemplate}"
+            Style="{StaticResource TabViewItemStyle}"
+            Text="Upcoming">
+            <xct:TabViewItem.Icon>
+                <FontImageSource
+                    FontFamily="FASolid"
+                    Glyph="{x:Static helpers:FAIcons.AngleDoubleUp}"
+                    Size="42"
+                    Color="{StaticResource TextSecondary}" />
+            </xct:TabViewItem.Icon>
+            <xct:TabViewItem.IconSelected>
+                <FontImageSource
+                    FontFamily="FASolid"
+                    Glyph="{x:Static helpers:FAIcons.AngleDoubleUp}"
+                    Size="42"
+                    Color="{StaticResource Accent}" />
+            </xct:TabViewItem.IconSelected>
+            <controls:ActiveChallengesView Margin="0,42,0,0"/>
+        </xct:TabViewItem>
+        <xct:TabViewItem
+            ControlTemplate="{StaticResource TabItemTemplate}"
+            Style="{StaticResource TabViewItemStyle}"
+            Text="Completed">
+            <xct:TabViewItem.Icon>
+                <FontImageSource
+                    FontFamily="FASolid"
+                    Glyph="{x:Static helpers:FAIcons.Award}"
+                    Size="48"
+                    Color="{StaticResource TextSecondary}" />
+            </xct:TabViewItem.Icon>
+            <xct:TabViewItem.IconSelected>
+                <FontImageSource
+                    FontFamily="FASolid"
+                    Glyph="{x:Static helpers:FAIcons.Award}"
+                    Size="48"
+                    Color="{StaticResource Accent}" />
+            </xct:TabViewItem.IconSelected>
+            <controls:CompletedChallengesControl Margin="0,42,0,0"/>
+        </xct:TabViewItem>
+    </xct:TabView>
 </ContentPage>

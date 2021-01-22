@@ -9,36 +9,6 @@
     BackgroundColor="{StaticResource Background}"
     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
     ios:Page.UseSafeArea="True">
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <Style x:Key="TabViewItemStyle" TargetType="xct:TabViewItem">
-                <Setter Property="TextColor" Value="{StaticResource TextSecondary}" />
-                <Setter Property="TextColorSelected" Value="{StaticResource Accent}" />
-            </Style>
-            <ControlTemplate x:Key="TabItemTemplate">
-                <Grid RowSpacing="0" VerticalOptions="Center">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-                    <Image
-                        Grid.Row="0"
-                        Margin="6"
-                        HeightRequest="36"
-                        HorizontalOptions="Center"
-                        Source="{TemplateBinding CurrentIcon}"
-                        VerticalOptions="Center"
-                        WidthRequest="36" />
-                    <Label
-                        Grid.Row="1"
-                        FontSize="{TemplateBinding FontSize}"
-                        HorizontalOptions="Center"
-                        Text="{TemplateBinding Text}"
-                        TextColor="{TemplateBinding CurrentTextColor}" />
-                </Grid>
-            </ControlTemplate>
-        </ResourceDictionary>
-    </ContentPage.Resources>
     <xct:TabView
         IsSwipeEnabled="False"
         TabStripBackgroundColor="{StaticResource CardBackground}"

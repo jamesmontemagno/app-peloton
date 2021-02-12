@@ -39,6 +39,9 @@
 
   <ItemGroup>
     <SharedImage Include="Resources\Images\medal.png" BaseSize="86,86" />
+    <SharedImage Include="Resources\Images\ally.png" BaseSize="80,80" />
+    <SharedImage Include="Resources\Images\alex.png" BaseSize="80,80" />
+    <SharedImage Include="Resources\Images\hannah.png" BaseSize="80,80" />
   </ItemGroup>
 
   <ItemGroup>

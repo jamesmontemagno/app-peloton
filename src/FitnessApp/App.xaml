@@ -13,6 +13,8 @@
             <Color x:Key="TabBarBackground">#FAF8FA</Color>
             <Color x:Key="CardBackground">#FFFEFF</Color>
             <Color x:Key="ButtonOutline">#686E7A</Color>
+            <Color x:Key="WorkoutBottomBackground">#F6F7FA</Color>
+            
             <Color x:Key="Accent">#FF344A</Color>
 
             <Color x:Key="TabIconSelected">#FF344A</Color>

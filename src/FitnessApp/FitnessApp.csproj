@@ -27,10 +27,10 @@
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="Refractored.MvvmHelpers" Version="1.6.2" />
     <PackageReference Include="Resizetizer.NT" Version="0.2.0" />
-    <PackageReference Include="Sharpnado.MaterialFrame" Version="1.1.3" />
+    <PackageReference Include="Sharpnado.MaterialFrame" Version="1.1.4" />
     <PackageReference Include="Xamarin.CommunityToolkit" Version="1.0.2" />
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.1905" />  
-    <PackageReference Include="Xamarin.Essentials" Version="1.6.0" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />  
+    <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -42,6 +42,7 @@
     <SharedImage Include="Resources\Images\ally.png" BaseSize="80,80" />
     <SharedImage Include="Resources\Images\alex.png" BaseSize="80,80" />
     <SharedImage Include="Resources\Images\hannah.png" BaseSize="80,80" />
+    <SharedImage Include="Resources\Images\james.jpg" BaseSize="100,100" />
   </ItemGroup>
 
   <ItemGroup>

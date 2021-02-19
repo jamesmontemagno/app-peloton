@@ -3,28 +3,304 @@
     x:Class="FitnessApp.Views.Profile.ProfileOverviewPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:helpers="clr-namespace:FitnessApp.Helpers"
+    xmlns:list="clr-namespace:System.Collections.Generic;assembly=netstandard"
     Title="JamesMontemagno"
     BackgroundColor="{StaticResource Background}">
     <Shell.TitleView>
-        <StackLayout VerticalOptions="FillAndExpand"
-              HorizontalOptions="FillAndExpand">
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
             <Label
+                Margin="{OnPlatform iOS='0,12,0,4',
+                                    Android='0,16,0,8'}"
                 FontSize="Medium"
+                HorizontalTextAlignment="Center"
                 Text="JamesMontemagno"
-                TextColor="Black"
-                Margin="{OnPlatform iOS='0,12,0,4', Android='0,16,0,8'}"
-                HorizontalTextAlignment="Center"/>
+                TextColor="Black" />
             <BoxView
-                HorizontalOptions="FillAndExpand"
-                HeightRequest="1"
                 Margin="{OnPlatform Android='0,0,16,0'}"
-                BackgroundColor="#DDD"/>
+                BackgroundColor="#DDD"
+                HeightRequest="1"
+                HorizontalOptions="FillAndExpand" />
         </StackLayout>
     </Shell.TitleView>
-    <StackLayout>
-        <Label
-            HorizontalOptions="CenterAndExpand"
-            Text="Welcome to Xamarin.Forms!"
-            VerticalOptions="CenterAndExpand" />
-    </StackLayout>
+    <ScrollView>
+        <StackLayout Padding="8">
+            <Frame
+                Padding="0,12"
+                CornerRadius="6"
+                HasShadow="False">
+                <Grid>
+                    <Label
+                        Margin="0,0,10,0"
+                        FontFamily="FARegular"
+                        FontSize="Large"
+                        HorizontalOptions="EndAndExpand"
+                        Text="{x:Static helpers:FAIcons.Edit}"
+                        TextColor="{StaticResource TextSecondary}"
+                        VerticalOptions="Start" />
+                    <StackLayout>
+                        <Image
+                            Margin="0,8,0,0"
+                            HeightRequest="80"
+                            HorizontalOptions="Center"
+                            Source="james.jpg"
+                            VerticalOptions="Center"
+                            WidthRequest="80">
+                            <Image.Clip>
+                                <EllipseGeometry
+                                    Center="40,40"
+                                    RadiusX="40"
+                                    RadiusY="40" />
+                            </Image.Clip>
+                        </Image>
+                        <Label
+                            Margin="0,8"
+                            FontSize="Title"
+                            HorizontalOptions="Center"
+                            Text="JamesMontemagno"
+                            TextColor="{StaticResource TextPrimary}" />
+
+                        <Button
+                            Margin="0,4,0,16"
+                            Padding="40,0"
+                            BackgroundColor="Transparent"
+                            BorderColor="{StaticResource Background}"
+                            BorderWidth="1"
+                            CornerRadius="20"
+                            HeightRequest="40"
+                            HorizontalOptions="Center"
+                            Text="Add Tags" />
+
+
+                        <BoxView
+                            BackgroundColor="{StaticResource Background}"
+                            HeightRequest="1"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="Center" />
+
+                        <Grid
+                            Padding="24,8,24,0"
+                            ColumnDefinitions=".25*, .25*, .4*,Auto"
+                            RowDefinitions="Auto,Auto"
+                            RowSpacing="0">
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="Medium"
+                                Text="4"
+                                TextColor="{StaticResource TextPrimary}" />
+                            <Label Grid.Row="1" Text="Followers" />
+                            <Label
+                                Grid.Column="1"
+                                FontAttributes="Bold"
+                                FontSize="Medium"
+                                Text="4"
+                                TextColor="{StaticResource TextPrimary}" />
+                            <Label
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Text="Following" />
+
+                            <Label
+                                Grid.RowSpan="2"
+                                Grid.Column="2"
+                                Margin="0,0,4,0"
+                                FontFamily="FASolid"
+                                FontSize="Title"
+                                HorizontalOptions="EndAndExpand"
+                                Text="{x:Static helpers:FAIcons.Search}"
+                                TextColor="{StaticResource TextSecondary}"
+                                VerticalOptions="Center" />
+
+                            <Label
+                                Grid.Column="3"
+                                Text="Find"
+                                VerticalOptions="End" />
+
+                            <Label
+                                Grid.Row="1"
+                                Grid.Column="3"
+                                Text="Members"
+                                VerticalOptions="Start" />
+
+                        </Grid>
+                    </StackLayout>
+                </Grid>
+            </Frame>
+
+            <Frame
+                Padding="0"
+                CornerRadius="6"
+                HasShadow="False">
+                <Grid RowDefinitions="Auto,Auto,Auto">
+
+                    <Grid BackgroundColor="{StaticResource CardHeaderBackground}">
+                        <StackLayout
+                            Padding="0,16"
+                            HorizontalOptions="Center"
+                            Orientation="Horizontal"
+                            Spacing="2">
+
+                            <Label
+                                FontSize="Medium"
+                                Text="30 Day Activity"
+                                TextColor="{StaticResource TextPrimary}" />
+                            <Label
+                                FontSize="Medium"
+                                Text="  • "
+                                TextColor="{StaticResource TextSecondary}"
+                                VerticalTextAlignment="Center" />
+
+                            <Label
+                                FontSize="Medium"
+                                Text="Jan 29 - Feb 19"
+                                TextColor="{StaticResource TextSecondary}" />
+                        </StackLayout>
+                    </Grid>
+
+                    <Grid ColumnDefinitions="*,Auto,Auto"
+                          Padding="8"
+                          Grid.Row="1"
+                          RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto">
+
+                        <StackLayout Orientation="Horizontal" 
+                                     HorizontalOptions="Center"
+                                     BindableLayout.ItemsSource="{Binding Days}">
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout WidthRequest="28">
+                                        <Label Text="{Binding .}" 
+                                               HorizontalOptions="Center"
+                                               FontSize="Micro"
+                                               TextColor="{StaticResource TextPrimary}"/>
+                                    </StackLayout>
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal" 
+                                     HorizontalOptions="Center"
+                                     BindableLayout.ItemsSource="{Binding Week1}"
+                                     Grid.Row="1">
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate>
+                                    <Frame Margin="2,0" BackgroundColor="#49679B" Padding="0"
+                                           HeightRequest="24"
+                                           WidthRequest="24"
+                                           CornerRadius="12">
+                                        <Label Text="{Binding .}"
+                                               HorizontalOptions="Center"
+                                               VerticalOptions="Center"
+                                               FontSize="Micro"
+                                               TextColor="White"/>
+                                    </Frame>
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" 
+                                     HorizontalOptions="Center"
+                                     BindableLayout.ItemsSource="{Binding Week1}"
+                                     Grid.Row="2">
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate>
+                                    <Frame Margin="2,0" BackgroundColor="#49679B" Padding="0"
+                                           HeightRequest="24"
+                                           WidthRequest="24"
+                                           CornerRadius="12">
+                                        <Label Text="{Binding .}"
+                                               HorizontalOptions="Center"
+                                               VerticalOptions="Center"
+                                               FontSize="Micro"
+                                               TextColor="White"/>
+                                    </Frame>
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" 
+                                     HorizontalOptions="Center"
+                                     BindableLayout.ItemsSource="{Binding Week1}"
+                                     Grid.Row="3">
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate>
+                                    <Frame Margin="2,0" BackgroundColor="#49679B" Padding="0"
+                                           HeightRequest="24"
+                                           WidthRequest="24"
+                                           CornerRadius="12">
+                                        <Label Text="{Binding .}"
+                                               HorizontalOptions="Center"
+                                               VerticalOptions="Center"
+                                               FontSize="Micro"
+                                               TextColor="White"/>
+                                    </Frame>
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" 
+                                     HorizontalOptions="Center"
+                                     BindableLayout.ItemsSource="{Binding Week1}"
+                                     Grid.Row="4">
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate>
+                                    <Frame Margin="2,0" BackgroundColor="#49679B" Padding="0"
+                                           HeightRequest="24"
+                                           WidthRequest="24"
+                                           CornerRadius="12">
+                                        <Label Text="{Binding .}"
+                                               HorizontalOptions="Center"
+                                               FontSize="Micro"
+                                               VerticalOptions="Center"
+                                               TextColor="White"/>
+                                    </Frame>
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal" 
+                                     HorizontalOptions="Center"
+                                     BindableLayout.ItemsSource="{Binding Week1}"
+                                     Grid.Row="5">
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate>
+                                    <Frame Margin="2,0" BackgroundColor="#49679B" Padding="0"
+                                           HeightRequest="24"
+                                           WidthRequest="24"
+                                           CornerRadius="12">
+                                        <Label Text="{Binding .}"
+                                               HorizontalOptions="Center"
+                                               VerticalOptions="Center"
+                                               FontSize="Micro"
+                                               TextColor="White"/>
+                                    </Frame>
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </StackLayout>
+
+                    </Grid>
+
+                    <Grid Grid.Row="2" BackgroundColor="{StaticResource CardHeaderBackground}">
+                        <StackLayout
+                            Padding="0,16"
+                            HorizontalOptions="Center"
+                            Orientation="Horizontal"
+                            Spacing="2">
+
+                            <Label
+                                FontSize="Medium"
+                                Text="30 Day Activity"
+                                TextColor="{StaticResource TextPrimary}" />
+                            <Label
+                                FontSize="Medium"
+                                Text="  • "
+                                TextColor="{StaticResource TextSecondary}"
+                                VerticalTextAlignment="Center" />
+
+                            <Label
+                                FontSize="Medium"
+                                Text="Jan 29 - Feb 19"
+                                TextColor="{StaticResource TextSecondary}" />
+                        </StackLayout>
+                    </Grid>
+                </Grid>
+            </Frame>
+        </StackLayout>
+    </ScrollView>
 </ContentPage>

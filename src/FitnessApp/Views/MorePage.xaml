@@ -1,12 +1,172 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="FitnessApp.Views.MorePage">
-    <ContentPage.Content>
+<ContentPage
+    x:Class="FitnessApp.Views.MorePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:helpers="clr-namespace:FitnessApp.Helpers"
+    BackgroundColor="{StaticResource Background}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label" x:Key="SettingsStyle">
+                <Setter Property="FontSize" Value="Medium"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="TextColor" Value="Black"/>
+            </Style>
+            <Style BasedOn="{StaticResource SettingsStyle}"
+                   TargetType="Label" x:Key="SettingsIconStyle">
+                <Setter Property="FontFamily" Value="FASolid"/>
+                <Setter Property="WidthRequest" Value="22"/>
+            </Style>
+            <Style TargetType="BoxView" x:Key="ThinLine">
+                <Setter Property="BackgroundColor" Value="{StaticResource Background}"/>
+                <Setter Property="HeightRequest" Value="1"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ScrollView Padding="12">
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label Text="ACCOUNT" FontAttributes="Bold" TextColor="Black"/>
+            <Frame BackgroundColor="{StaticResource CardBackground}"
+                   Padding="0"
+                   HasShadow="False"
+                   CornerRadius="8">
+
+                <StackLayout Spacing="0">
+                    <StackLayout Orientation="Horizontal"
+                                 Padding="16,12"
+                                 Spacing="12">
+                        <Label Text="{x:Static helpers:FAIcons.Key}"
+                               Style="{StaticResource SettingsIconStyle}"/>
+                        <Label Text="Memberships"
+                               Style="{StaticResource SettingsStyle}"/>
+                    </StackLayout>
+
+                    <BoxView Style="{StaticResource ThinLine}" />
+                    <StackLayout Orientation="Horizontal"
+                                 Padding="16,12"
+                                 Spacing="12">
+                        <Label Text="{x:Static helpers:FAIcons.Cog}"
+                               Style="{StaticResource SettingsIconStyle}"/>
+                        <Label Text="Preferences"
+                               Style="{StaticResource SettingsStyle}"/>
+                    </StackLayout>
+                    <BoxView Style="{StaticResource ThinLine}" />
+                    <StackLayout Orientation="Horizontal"
+                                 Padding="16,12"
+                                 Spacing="12">
+                        <Label Text="{x:Static helpers:FAIcons.SignOutAlt}"
+                               Style="{StaticResource SettingsIconStyle}"/>
+                        <Label Text="Sign Out"
+                               Style="{StaticResource SettingsStyle}"/>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+            <Label Text="ADD-ONS" FontAttributes="Bold" TextColor="Black"/>
+            <Frame BackgroundColor="{StaticResource CardBackground}"
+                   Padding="0"
+                   HasShadow="False"
+                   CornerRadius="8">
+
+                <StackLayout Spacing="0">
+                    <StackLayout Orientation="Horizontal"
+                                 Padding="16,12"
+                                 Spacing="12">
+                        <Label Text="{x:Static helpers:FAIcons.Heart}"
+                               Style="{StaticResource SettingsIconStyle}"/>
+                        <Label Text="Health App"
+                               Style="{StaticResource SettingsStyle}"/>
+                    </StackLayout>
+
+                    <BoxView Style="{StaticResource ThinLine}" />
+                    <StackLayout Orientation="Horizontal"
+                                 Padding="16,12"
+                                 Spacing="12">
+                        <Label Text="{x:Static helpers:FAIcons.Map}"
+                               Style="{StaticResource SettingsIconStyle}"/>
+                        <Label Text="Running Route Tracking"
+                               Style="{StaticResource SettingsStyle}"/>
+                    </StackLayout>
+                    <BoxView Style="{StaticResource ThinLine}" />
+                    <StackLayout Orientation="Horizontal"
+                                 Padding="16,12"
+                                 Spacing="12">
+                        <Label Text="{x:Static helpers:FAIcons.FacebookSquare}"
+                               Style="{StaticResource SettingsIconStyle}"
+                               FontFamily="FABrands"/>
+                        <Label Text="Find Facebook Friends"
+                               Style="{StaticResource SettingsStyle}"/>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+            <Label Text="LEARN MORE" FontAttributes="Bold" TextColor="Black"/>
+            <Frame BackgroundColor="{StaticResource CardBackground}"
+                   Padding="0"
+                   HasShadow="False"
+                   CornerRadius="8">
+
+                <StackLayout Spacing="0">
+                    <StackLayout Orientation="Horizontal"
+                                 Padding="16,12"
+                                 Spacing="12">
+                        <Label Text="{x:Static helpers:FAIcons.Headset}"
+                               Style="{StaticResource SettingsIconStyle}"/>
+                        <Label Text="Instructors"
+                               Style="{StaticResource SettingsStyle}"/>
+                    </StackLayout>
+
+                    <BoxView Style="{StaticResource ThinLine}" />
+                    <StackLayout Orientation="Horizontal"
+                                 Padding="16,12"
+                                 Spacing="12">
+                        <Label Text="{x:Static helpers:FAIcons.Search}"
+                               Style="{StaticResource SettingsIconStyle}"/>
+                        <Label Text="Find Members"
+                               Style="{StaticResource SettingsStyle}"/>
+                    </StackLayout>
+                    <BoxView Style="{StaticResource ThinLine}" />
+                    <StackLayout Orientation="Horizontal"
+                                 Padding="16,12"
+                                 Spacing="12">
+                        <Label Text="{x:Static helpers:FAIcons.Biking}"
+                               Style="{StaticResource SettingsIconStyle}"/>
+                        <Label Text="The Peloton Bike"
+                               Style="{StaticResource SettingsStyle}"/>
+                    </StackLayout>
+                    <BoxView Style="{StaticResource ThinLine}" />
+                    <StackLayout Orientation="Horizontal"
+                                 Padding="16,12"
+                                 Spacing="12">
+                        <Label Text="{x:Static helpers:FAIcons.Walking}"
+                               Style="{StaticResource SettingsIconStyle}"/>
+                        <Label Text="The Peloton Tread"
+                               Style="{StaticResource SettingsStyle}"/>
+                    </StackLayout>
+                    <BoxView Style="{StaticResource ThinLine}" />
+                    <StackLayout Orientation="Horizontal"
+                                 Padding="16,12"
+                                 Spacing="12">
+                        <Label Text="{x:Static helpers:FAIcons.ShoppingCart}"
+                               Style="{StaticResource SettingsIconStyle}"/>
+                        <Label Text="Shop Peloton Apparel"
+                               Style="{StaticResource SettingsStyle}"/>
+                    </StackLayout>
+                    <BoxView Style="{StaticResource ThinLine}" />
+                    <StackLayout Orientation="Horizontal"
+                                 Padding="16,12"
+                                 Spacing="12">
+                        <Label Text="{x:Static helpers:FAIcons.QuestionCircle}"
+                               Style="{StaticResource SettingsIconStyle}"/>
+                        <Label Text="Support andn FAQs"
+                               Style="{StaticResource SettingsStyle}"/>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+            <Label Text="Peloton v15.1.0 (108199)"
+                   FontSize="Small"
+                   TextColor="{StaticResource TextSecondary}"
+                   HorizontalOptions="Center"/>
+
         </StackLayout>
-    </ContentPage.Content>
+    </ScrollView>
 </ContentPage>

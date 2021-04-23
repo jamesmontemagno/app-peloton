@@ -33,7 +33,7 @@
         </ResourceDictionary>
     </Shell.Resources>
 
-    <TabBar>
+    <TabBar Route="MainTabs">
         <Tab Title="Featured"
              Route="FeaturedPage"
              Shell.NavBarIsVisible="False"

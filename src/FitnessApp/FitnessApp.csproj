@@ -23,12 +23,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="MonkeyCache.FileStore" Version="1.5.0-beta" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="MonkeyCache.FileStore" Version="1.5.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Refractored.MvvmHelpers" Version="1.6.2" />
     <PackageReference Include="Resizetizer.NT" Version="0.2.0" />
     <PackageReference Include="Sharpnado.MaterialFrame" Version="1.1.4" />
-    <PackageReference Include="Xamarin.CommunityToolkit" Version="1.0.2" />
+    <PackageReference Include="Xamarin.CommunityToolkit" Version="1.1.0" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />  
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
   </ItemGroup>
@@ -43,18 +43,17 @@
     <SharedImage Include="Resources\Images\alex.png" BaseSize="80,80" />
     <SharedImage Include="Resources\Images\hannah.png" BaseSize="80,80" />
     <SharedImage Include="Resources\Images\james.jpg" BaseSize="100,100" />
+    <SharedImage Include="Resources\Images\collection1.png" BaseSize="431,245" />
+    <SharedImage Include="Resources\Images\collection2.png" BaseSize="431,245" />
+    <SharedImage Include="Resources\Images\program1.png" BaseSize="431,245" />
+    <SharedImage Include="Resources\Images\program2.png" BaseSize="431,245" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Views\Profile\ProfileAchievementsPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\Profile\ProfileOverviewPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\Profile\ProfileWorkoutsPage.xaml">
+    <EmbeddedResource Update="Views\CollectionDetailPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
+
 
 </Project>

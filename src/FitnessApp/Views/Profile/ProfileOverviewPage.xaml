@@ -194,6 +194,7 @@
                             <BindableLayout.ItemTemplate>
                                 <DataTemplate x:DataType="x:String">
                                     <Frame
+                                        HasShadow="False"
                                         Margin="4,2"
                                         Padding="0"
                                         BackgroundColor="#49679B"
@@ -218,6 +219,7 @@
                             <BindableLayout.ItemTemplate>
                                 <DataTemplate x:DataType="x:String">
                                     <Frame
+                                        HasShadow="False"
                                         Margin="4,2"
                                         Padding="0"
                                         BackgroundColor="#49679B"
@@ -242,6 +244,7 @@
                             <BindableLayout.ItemTemplate>
                                 <DataTemplate x:DataType="x:String">
                                     <Frame
+                                        HasShadow="False"
                                         Margin="4,2"
                                         Padding="0"
                                         BackgroundColor="#49679B"
@@ -266,6 +269,7 @@
                             <BindableLayout.ItemTemplate>
                                 <DataTemplate x:DataType="x:String">
                                     <Frame
+                                        HasShadow="False"
                                         Margin="4,2"
                                         Padding="0"
                                         BackgroundColor="#49679B"
@@ -291,6 +295,7 @@
                             <BindableLayout.ItemTemplate>
                                 <DataTemplate x:DataType="x:String">
                                     <Frame
+                                        HasShadow="False"
                                         Margin="4,2"
                                         Padding="0"
                                         BackgroundColor="{StaticResource BlueAccent}"

@@ -11,6 +11,7 @@ namespace FitnessApp
         public AppShell()
         {
             InitializeComponent();
+            Routing.RegisterRoute(nameof(CollectionDetailPage), typeof(CollectionDetailPage));
         }
 
     }

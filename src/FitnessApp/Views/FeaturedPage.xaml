@@ -3,63 +3,90 @@
     x:Class="FitnessApp.Views.FeaturedPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-    xmlns:local="clr-namespace:FitnessApp.ViewModels"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    BackgroundColor="{StaticResource Background}"
     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:local="clr-namespace:FitnessApp.ViewModels"
+    xmlns:models="clr-namespace:FitnessApp.Models"
+    xmlns:helpers="clr-namespace:FitnessApp.Helpers"
+    xmlns:converters="clr-namespace:FitnessApp.Converters"
     ios:Page.UseSafeArea="True"
-    mc:Ignorable="d">
-    <d:ContentPage.BindingContext>
+    x:DataType="local:FeaturedViewModel"
+    BackgroundColor="{StaticResource Background}">
+    <ContentPage.BindingContext>
         <local:FeaturedViewModel />
-    </d:ContentPage.BindingContext>
-    <Grid RowDefinitions="Auto,240,*">
-        <Label
-            Margin="16,10,0,0"
-            FontAttributes="Bold"
-            FontSize="Medium"
-            Text="Live and Upcoming"
-            TextColor="{StaticResource TextPrimary}" />
-        <CollectionView
-            Grid.Row="1"
-            ItemsLayout="HorizontalList"
-            VerticalOptions="Start">
-            <CollectionView.ItemsSource>
-                <x:Array Type="{x:Type x:String}">
-                    <x:String>Item One</x:String>
-                    <x:String>Item Two</x:String>
-                    <x:String>Item Three</x:String>
-                </x:Array>
-            </CollectionView.ItemsSource>
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Grid Padding="8,4">
-                        <Frame
-                            Padding="0"
-                            BackgroundColor="{StaticResource CardBackground}"
-                            CornerRadius="8"
-                            HasShadow="False"
-                            WidthRequest="320"
-                            IsClippedToBounds="True">
-                            <Grid RowDefinitions="170,Auto,Auto">
-                                <BoxView BackgroundColor="Black" />
-                                <Label
-                                    Grid.Row="1"
-                                    Margin="16,4,0,0"
-                                    FontSize="Small"
-                                    Text="PROGRAM - 4 WEEKS"
-                                    TextColor="{StaticResource TextSecondary}" />
-                                <Label
-                                    Grid.Row="2"
-                                    Margin="16,0,0,6"
-                                    FontSize="Medium"
-                                    Text="Strength"
-                                    TextColor="{StaticResource TextPrimary}" />
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:IsBookmarkedConverter x:Key="IsBookmarkedConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <CollectionView
+        IsGrouped="True"
+        ItemsLayout="VerticalList"
+        ItemsSource="{Binding Workouts}"
+        VerticalOptions="Start">
+        <CollectionView.GroupHeaderTemplate>
+            <DataTemplate x:DataType="{x:Null}">
+                <StackLayout Padding="12,12,12,0">
+                    <Label
+                        FontSize="Medium"
+                        Text="{Binding Key}"
+                        TextColor="{StaticResource TextPrimary}" />
+                </StackLayout>
+            </DataTemplate>
+        </CollectionView.GroupHeaderTemplate>
+        <CollectionView.ItemTemplate>
+            <DataTemplate x:DataType="models:WorkoutGroup">
+                <CollectionView ItemsLayout="HorizontalList"
+                                HeightRequest="200"
+                                ItemsSource="{Binding Workouts}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="models:Workout">
+                            <Grid Padding="8,4">
+                                <Frame
+                                    Padding="0"
+                                    BackgroundColor="{StaticResource CardBackground}"
+                                    CornerRadius="8"
+                                    HasShadow="False"
+                                    IsClippedToBounds="True"
+                                    WidthRequest="320">
+                                    <Grid RowSpacing="0" RowDefinitions="*,Auto,Auto,Auto">
+                                        <Image Grid.RowSpan="4" Aspect="AspectFill" Source="{Binding Image}" />
+                                        <BoxView BackgroundColor="#99000000" Grid.RowSpan="4"/>
+                                        <Label Grid.RowSpan="4"
+                                               TextColor="White"
+                                               HorizontalOptions="End"
+                                               FontSize="32"
+                                               Margin="0,-1,16,0"
+                                               FontFamily="{Binding Bookmarked, Converter={StaticResource IsBookmarkedConverter}}"
+                                               Text="{x:Static helpers:FAIcons.Bookmark}"/>
+                                        
+
+                                        <Label
+                                            Grid.Row="1"
+                                            Margin="16,4,0,0"
+                                            FontSize="Medium"
+                                            Text="{Binding Name}"
+                                            TextColor="White" />
+                                        <Label
+                                            Grid.Row="2"
+                                            Margin="16,4,0,6"
+                                            FontSize="Small"
+                                            Text="{Binding Category}"
+                                            TextColor="White" />
+                                        <Label
+                                            Grid.Row="3"
+                                            Margin="16,0,0,16"
+                                            FontSize="Small"
+                                            Text="{Binding Date}"
+                                            TextColor="{StaticResource TextSecondary}" />
+                                    </Grid>
+                                </Frame>
                             </Grid>
-                        </Frame>
-                    </Grid>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-    </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
 </ContentPage>

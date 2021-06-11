@@ -10,13 +10,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Resources\Fonts\FABrands.otf" />
-    <None Remove="Resources\Fonts\FARegular.otf" />
-    <None Remove="Resources\Fonts\FASolid.otf" />
-    <None Remove="Resources\Images\medal.png" />
-  </ItemGroup>
-
-  <ItemGroup>
     <EmbeddedResource Include="Resources\Fonts\FABrands.otf" />
     <EmbeddedResource Include="Resources\Fonts\FARegular.otf" />
     <EmbeddedResource Include="Resources\Fonts\FASolid.otf" />
@@ -47,6 +40,9 @@
     <SharedImage Include="Resources\Images\collection2.png" BaseSize="431,245" />
     <SharedImage Include="Resources\Images\program1.png" BaseSize="431,245" />
     <SharedImage Include="Resources\Images\program2.png" BaseSize="431,245" />
+    <SharedImage Include="Resources\Images\workout1.png" BaseSize="585,252" />
+    <SharedImage Include="Resources\Images\workout2.png" BaseSize="585,252" />
+    <SharedImage Include="Resources\Images\workout3.png" BaseSize="585,252" />
   </ItemGroup>
 
   <ItemGroup>
